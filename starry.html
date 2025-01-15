@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>800 firefliessss</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+    }
+
+    .firefly {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, yellow, transparent);
+      border-radius: 50%;
+      opacity: 0;
+      animation: move 5s infinite, glow 1.5s infinite;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(50px, -80px);
+      }
+      50% {
+        transform: translate(-100px, 50px);
+      }
+      75% {
+        transform: translate(120px, -50px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+    @keyframes glow {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const fireflyCount = 800; 
+
+    for (let i = 0; i < fireflyCount; i++) {
+      const firefly = document.createElement('div');
+      firefly.classList.add('firefly');
+
+      firefly.style.top = `${Math.random() * 100}vh`;
+      firefly.style.left = `${Math.random() * 100}vw`;
+
+      firefly.style.animationDuration = `${Math.random() * 3 + 4}s, ${Math.random() * 2 + 1}s`;
+      firefly.style.animationDelay = `${Math.random() * 5}s, ${Math.random() * 2}s`;
+
+      document.body.appendChild(firefly);
+    }
+  </script>
+</body>
+</html>
